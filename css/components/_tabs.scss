@@ -1,0 +1,26 @@
+.nav {
+  &.nav-tabs {
+    border-bottom: 3px solid $primaryColor;
+  }
+  & .nav-item {
+    margin: 0 0.5rem 0 0;
+    & .nav-link {
+      background-color: #555;
+      color: #fff;
+      border: none;
+      line-height: 1;
+      padding: 1rem;
+    }
+    & .nav-link.active {
+      color: #ffffff;
+      background-color: $primaryColor;
+      border: none;
+    }
+  }
+}
+
+.tab-content {
+  & .tab-pane {
+    padding: 1.5rem 0.5rem;
+  }
+}

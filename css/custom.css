@@ -1,0 +1,258 @@
+ol > li,
+ul > li {
+  font-weight: 300;
+}
+
+h1, .h1 {
+  font-size: 3rem;
+}
+
+@media (max-width: 767.98px) {
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+}
+
+h2, .h2 {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 767.98px) {
+  h2, .h2 {
+    font-size: 2rem;
+  }
+}
+
+h3, .h3 {
+  font-size: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  h3, .h3 {
+    font-size: 1.75rem;
+  }
+}
+
+h4, .h4 {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 767.98px) {
+  h4, .h4 {
+    font-size: 1.5rem;
+  }
+}
+
+h5, .h5 {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+  h5, .h5 {
+    font-size: 1.25rem;
+  }
+}
+
+h6, .h6 {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+  h6, .h6 {
+    font-size: 1rem;
+  }
+}
+
+/* Fix Navigation */
+.fix-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  width: 100%;
+  height: 88px;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.fix-nav .container .logo img {
+  width: 200px;
+}
+
+.content-section {
+  padding: 2.5em 0 0 0;
+  background-color: #fff;
+  color: #333;
+}
+
+.content-section.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.content-section a {
+  color: #e8171f;
+  text-decoration: none;
+}
+
+.content-section:after {
+  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(204, 204, 204, 0) 0px, #ccc 100%) repeat scroll 0 0;
+  content: '';
+  display: block;
+  height: 60px;
+  opacity: 0.4;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  position: relative;
+  color: #333;
+  min-height: 320px;
+  margin-top: 88px;
+}
+
+@media (max-width: 768px) {
+  header {
+    min-height: 320px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+header.dark {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  header.dark {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+header:before {
+  content: '';
+  background-repeat: no-repeat;
+  background-position-x: 80%;
+  background-position-y: center;
+  background-size: cover;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+header.dark:before {
+  background-color: #333;
+}
+
+.nav.nav-tabs {
+  border-bottom: 3px solid #e8171f;
+}
+
+.nav .nav-item {
+  margin: 0 0.5rem 0 0;
+}
+
+.nav .nav-item .nav-link {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  line-height: 1;
+  padding: 1rem;
+}
+
+.nav .nav-item .nav-link.active {
+  color: #ffffff;
+  background-color: #e8171f;
+  border: none;
+}
+
+.tab-content .tab-pane {
+  padding: 1.5rem 0.5rem;
+}
+
+.the-insight-bar {
+  padding: 0;
+  display: inline-block;
+  -webkit-font-variant-ligatures: no-common-ligatures;
+          font-variant-ligatures: no-common-ligatures;
+}
+
+.the-insight-bar__pre-header {
+  padding: 0 0 0 calc((1ex / 0.46) + 1ex);
+  font-size: 0.46em;
+  font-weight: 300;
+  line-height: calc(1em + 3px);
+  margin: 0 0 5ex 0;
+}
+
+.the-insight-bar__red-bar {
+  border-left: calc(1ex / 2) solid #e8171f;
+  display: inline-block;
+}
+
+.the-insight-bar__red-bar.blockquote {
+  font-size: 1em;
+}
+
+.the-insight-bar__wrapper {
+  margin: -0.1428571428em 0 0 0;
+  padding: 0;
+}
+
+.the-insight-bar__headline {
+  font-size: 1em;
+  padding: 0 0 0 1ex;
+  font-weight: 900;
+  line-height: calc(1em + 3px);
+  margin: 0 0 -0.1428571428em 0;
+}
+
+.the-insight-bar__subhead {
+  font-size: 0.46em;
+  padding: calc(1ex * 3) 0 0 calc(1ex / 0.46);
+  font-weight: 300;
+  line-height: calc(1em + 3px);
+  margin: 0.1428571428em 0 -0.1628571428em 0;
+}
+
+.the-insight-bar__subhead.blockquote-footer {
+  color: inherit;
+  font-style: italic;
+  font-weight: 600;
+  line-height: calc(1em + 3px);
+}
+
+.the-insight-bar__cta {
+  padding: 0 0 0 calc((1ex / 0.46) + 1ex);
+  margin: 3ex 0 0 0;
+  font-size: 0.46em;
+}
+
+.the-insight-bar__cta a {
+  font-size: inherit;
+  font-weight: 300;
+  text-decoration: none;
+  color: inherit;
+  line-height: calc(1em + 3px);
+}
+/*# sourceMappingURL=custom.css.map */
