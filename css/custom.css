@@ -118,10 +118,14 @@ h6, .h6 {
   text-align: right;
 }
 
-@media screen and (max-width: 576px) {
+@media (max-width: 768px) {
   .cc-banner.cc-theme-edgeless .cc-message {
     text-align: center;
   }
+}
+
+.cc-banner.cc-theme-edgeless .cc-btn {
+  width: 100%;
 }
 
 #banner {
