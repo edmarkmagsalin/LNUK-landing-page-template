@@ -1,0 +1,8 @@
+.cc-banner.cc-theme-edgeless .cc-message {
+    margin-left: 0;
+    margin-right: 1em;
+    text-align: right;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
