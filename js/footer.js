@@ -94,3 +94,23 @@ $(document).ready(function() {
   'decibelInsight'
 );
 // ]]>
+
+// Cookie Consent: BEGIN
+window.cookieconsent.initialise({
+  palette: {
+    popup: {
+      background: '#ffffc6'
+    },
+    button: {
+      background: '#f5d948'
+    }
+  },
+  theme: 'edgeless',
+  content: {
+    message: 'We use cookies to enable digital experiences.',
+    dismiss: 'Browse on or click to Agree',
+    link: 'Disable them/read more',
+    href: 'https://www.lexisnexis.co.uk/cookies'
+  }
+});
+// Cookie Consent: END
