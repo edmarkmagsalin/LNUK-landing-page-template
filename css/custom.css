@@ -406,6 +406,7 @@ h6, .h6 {
   position: absolute;
   display: inline-block;
   float: right;
+  border-radius: 20px;
   width: 23px;
   height: 23px;
   font-size: 0.9rem;
