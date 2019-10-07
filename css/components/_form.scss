@@ -120,10 +120,10 @@
     border-radius: 20px;
   }
 
-  & form-err:before,
-  & form-pass:before,
-  & form-info:before,
-  & form-warn:before {
+  &.form-err:before,
+  &.form-pass:before,
+  &.form-info:before,
+  &.form-warn:before {
     font-family: FontAwesome;
     position: absolute;
     display: inline-block;

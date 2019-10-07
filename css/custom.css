@@ -401,10 +401,7 @@ h6, .h6 {
   border-radius: 20px;
 }
 
-.form-group form-err:before,
-.form-group form-pass:before,
-.form-group form-info:before,
-.form-group form-warn:before {
+.form-group.form-err:before, .form-group.form-pass:before, .form-group.form-info:before, .form-group.form-warn:before {
   font-family: FontAwesome;
   position: absolute;
   display: inline-block;
