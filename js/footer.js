@@ -66,3 +66,31 @@ $(document).ready(function() {
     } // End if
   });
 });
+
+// <![CDATA[
+(function(d, e, c, i, b, el, it) {
+  d._da_ = d._da_ || [];
+  _da_.oldErr = d.onerror;
+  _da_.err = [];
+  d.onerror = function(er) {
+    _da_.err.push(er);
+    _da_.oldErr && _da_.oldErr(er);
+  };
+  d.DecibelInsight = b;
+  d[b] =
+    d[b] ||
+    function() {
+      (d[b].q = d[b].q || []).push(arguments);
+    };
+  (el = e.createElement(c)), (it = e.getElementsByTagName(c)[0]);
+  el.async = 1;
+  el.src = i;
+  it.parentNode.insertBefore(el, it);
+})(
+  window,
+  document,
+  'script',
+  '//decibelinsight.net/i/13476/di.js',
+  'decibelInsight'
+);
+// ]]>
