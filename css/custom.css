@@ -373,13 +373,13 @@ h6, .h6 {
 
 /* Form styling */
 .form-bg {
-  background-color: #333 !important;
+  background-color: #eee !important;
 }
 
 .ft-form,
 .quote-form,
 .demo-form {
-  background-color: #333 !important;
+  background-color: #eee !important;
 }
 
 .form-group {
