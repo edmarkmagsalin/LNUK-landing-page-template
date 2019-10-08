@@ -1,16 +1,19 @@
 @import
   'abstracts/variables';
 
+/* base */
 @import
   'base/reset';
 
+/* layout */
 @import
-  'layout/navigation',
-  'layout/sections';
+  'layout/sections',
+  'layout/navigation';
 
+/* componets */
 @import
-  'components/cookie-consent',
   'components/banner',
-  'components/tabs',
   'components/the-insight-bar',
+  'components/cookie-consent',
+  'components/tabs',
   'components/form';
