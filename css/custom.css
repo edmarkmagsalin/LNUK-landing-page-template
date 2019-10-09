@@ -168,6 +168,10 @@ h6, .h6 {
 }
 
 .the-insight-bar {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   padding: 0;
   display: inline-block;
   -webkit-font-variant-ligatures: no-common-ligatures;
@@ -481,8 +485,7 @@ h6, .h6 {
 
 /* tooltip stylings */
 .tooltip {
-  font-family: 'Lato', 'Roboto', 'SegoeUI', 'Helvetica Neue', 'Helvetica',
- sans-serif;
+  font-family: 'Lato', 'Roboto', 'SegoeUI', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   z-index: 1;
