@@ -168,10 +168,6 @@ h6, .h6 {
 }
 
 .the-insight-bar {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
   padding: 0;
   display: inline-block;
   -webkit-font-variant-ligatures: no-common-ligatures;
