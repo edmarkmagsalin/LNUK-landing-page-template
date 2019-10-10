@@ -179,10 +179,21 @@ h6, .h6 {
           font-variant-ligatures: no-common-ligatures;
 }
 
-.the-insight-bar--white-box {
+.the-insight-bar--boxed {
   background-color: #fff;
   padding: 1ex;
   color: #333;
+}
+
+.the-insight-bar--framed {
+  border-top: calc(1ex / 2) solid #D1D2D4;
+  border-right: calc(1ex / 2) solid #D1D2D4;
+  border-bottom: calc(1ex / 2) solid #D1D2D4;
+  padding: 0.5ex 2ex 0.5ex 0;
+}
+
+.the-insight-bar--framed > .the-insight-bar__red-bar {
+  padding: 0.5ex 0 1ex 0;
 }
 
 .the-insight-bar__pre-header {
