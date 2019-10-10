@@ -189,7 +189,9 @@ h6, .h6 {
   border-top: calc(1ex / 2) solid #D1D2D4;
   border-right: calc(1ex / 2) solid #D1D2D4;
   border-bottom: calc(1ex / 2) solid #D1D2D4;
+  background-color: #fff;
   padding: 0.5ex 2ex 0.5ex 0;
+  color: #333;
 }
 
 .the-insight-bar--framed > .the-insight-bar__red-bar {
