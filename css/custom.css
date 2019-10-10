@@ -182,6 +182,7 @@ h6, .h6 {
 .the-insight-bar--white-box {
   background-color: #fff;
   padding: 1ex;
+  color: #333;
 }
 
 .the-insight-bar__pre-header {
