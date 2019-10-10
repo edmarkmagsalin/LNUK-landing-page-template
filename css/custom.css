@@ -196,6 +196,11 @@ h6, .h6 {
   padding: 0.5ex 0 1ex 0;
 }
 
+.the-insight-bar--framed > .the-insight-bar__pre-header {
+  display: none;
+  visibility: hidden;
+}
+
 .the-insight-bar__pre-header {
   padding: 0 0 0 calc((1ex / 0.46) + 1ex);
   font-size: 0.46em;
