@@ -3,6 +3,11 @@
   display: inline-block;
   font-variant-ligatures: no-common-ligatures;
 
+  &--white-box {
+    background-color: $lightColor;
+    padding: 1ex;
+  }
+
   &__pre-header {
     padding: 0 0 0 calc((1ex / 0.46) + 1ex);
     font-size: 0.46em;

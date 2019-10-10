@@ -174,6 +174,11 @@ h6, .h6 {
           font-variant-ligatures: no-common-ligatures;
 }
 
+.the-insight-bar--white-box {
+  background-color: #fff;
+  padding: 1ex;
+}
+
 .the-insight-bar__pre-header {
   padding: 0 0 0 calc((1ex / 0.46) + 1ex);
   font-size: 0.46em;
