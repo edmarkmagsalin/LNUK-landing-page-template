@@ -242,7 +242,7 @@ h6, .h6 {
 }
 
 .the-insight-bar__cta {
-  padding: 0 0 0 calc((1ex / 0.46) + 1ex);
+  padding: 0 0 0 calc(1ex / 0.46);
   margin: 3ex 0 0 0;
   font-size: 0.46em;
 }
