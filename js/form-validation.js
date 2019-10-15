@@ -891,3 +891,179 @@ function changeColor(input_field){
         console.log("changed");
     }
 }
+
+
+
+
+
+
+
+
+
+function Validate(){
+
+    var count = 0, check = false;
+
+    $('.req').each(function() {
+         if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+
+            if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).closest('.oneField').append('<div class="errMsg"><span>Please confirm checkbox.</span></div>');
+                count++;
+            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                count++;
+            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == true) {
+                $(this).closest('.inputWrapper').next().remove();
+            }
+
+        }
+        if ($(this).val().length == 0) {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+
+        else if ($(this).val() == 'None' && $(this).attr('id') == 'salutation') {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'first_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+
+            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        } else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        } else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
+                $(this).next().remove();
+
+        } else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
+            if(!checkEmail($(this).val(), this)) {
+                count++;
+            }
+        } else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
+            if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Numbers only.');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Phone number is too short.');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Phone number is too short.</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Numbers only');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && $.isNumeric($(this).val())) {
+                $(this).next().remove();
+            }
+        } else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
+            $(this).next().remove();
+        }
+
+        else if ($(this).val() == 'None' && $(this).attr('id') == '00N3000000BZj7M') {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+        else if ($(this).val() == 'None' && $(this).attr('id') == 'Practice_Areas__c') {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+        if ($(this).type =='checkbox') {
+            check == true;
+        }
+
+
+
+    });
+
+    $('.req').each(function() {
+        if ($(this).val().length == 0) {
+            $(this).focus();
+            return false;
+        } else if ($(this).val().length != 0 && $(this).next().hasClass('errMsg')) {
+            $(this).focus();
+            return false;
+        }
+    });
+
+     var c=document.getElementsByTagName('input');
+     for (var i = 0; i<c.length; i++){
+        if (c[i].type =='checkbox') {
+            if (!c[i].checked && count != 0){
+                alert("The form is not complete and has not been submitted yet. There are "+ count +" problems with you submittion.");
+                return false;
+            }
+          else {
+                return true;
+            }
+         } else if (check == false) {
+            if (count != 0){
+                alert("The form is not complete and has not been submitted yet. There are "+ count +" problems with you submittion.");
+                return false;
+            }
+           else {
+                return true;
+            }
+        }
+    }
+}
+
+
+
+function checkEmail(str, i) {
+    var re = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,5}|[0-9]{1,3})(\]?)$/;
+    //var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    //var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.(\w{2}|(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum|COM|NET|ORG|EDU|INT|MIL|GOV|ARPA|BIZ|AERO|NAME|COOP|INFO|PRO|MUSEUM))$/;
+    //var str = $("#bus_email_text").val();
+    if (re.test(str)) {
+        $('#email').next().remove();
+        return true;
+    } else {
+        if ($('#email').next().hasClass('errMsg')) {
+            $('#email').next().find('span').html('Your email address is invalid.');
+        } else if (!$('#email').next().hasClass('errMsg')) {
+            $('#email').parent('.form-group').append('<div class="errMsg"><span>Your email address is invalid.</span></div>');
+        }
+        return false;
+    }
+}

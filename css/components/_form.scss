@@ -289,3 +289,127 @@
 .btn-margin {
   margin: 15px 0 !important;
 }
+
+
+
+
+
+.form {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.25em 1em;
+  /* Change PLEASE NOTE that this is used for RHS Campaign Forms ONLY */
+
+  /* Optout styling */
+
+  .optout {
+    margin-top: 2em;
+    margin-bottom: 2em;
+      padding: 1em;
+    background-color: #ededed;
+      border-radius: 5px;
+  }
+
+  .optout p {
+    font-size: 0.75em;
+    line-height: 1.8em;
+  }
+
+  .disclaimer {
+    margin-top: 0.5rem;
+    font-size: 0.6em;
+    line-height: 1.8em;
+    padding: 0 0.9rem;
+  }
+
+  #PrefWidget .prefHeader {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+    #PrefWidget .prefHeader p {
+      font-size: 0.67rem;
+      line-height: 1rem;
+      margin-bottom: 0.5rem;
+    }
+      
+      #PrefWidget .prefHeader a {
+      font-size: inherit;
+    }
+
+    #PrefWidget .prefHeader p:first-child:before {
+      font-family: FontAwesome;
+      content: '\f023';
+      margin-right: 0.4rem;
+    }
+
+
+  /* Error alert styling */
+
+  .errAlert {
+      background-color: #ab1e2b;
+      color: #fff;
+      border-radius: 4px;
+      border: none;
+      box-shadow: none;
+      text-align: center;
+      padding: 5px;
+      margin-bottom: 15px;
+  }
+
+      .errAlert p, .errAlert p strong {
+      font-size: 0.6rem;
+      margin: 0;
+      letter-spacing: 0.8px;
+          font-weight: bold;
+      }
+      
+  /* Error fields styling */
+
+  .errMsg {
+    padding-top: 0.1rem;
+    margin-left: 0.3rem;
+      margin-top: 0;
+      margin-bottom: 0.1rem;
+    color: #ed1c24;
+      font-size: 0.6rem;
+  }
+
+    .errMsg p {
+      margin-bottom: 0;
+      font-size: 0.6rem;
+      letter-spacing: 0.8px;
+          font-weight: bold;
+    }
+
+  .err {
+    border: 1px solid #ed1c24;
+  }
+
+  .err:focus {
+    border-color: #ed1c24;
+  }
+
+  /* Approved fields styling */
+
+  .pass {
+    border: 1px solid #09ba0c;
+  }
+
+  /* Form styling */
+
+  .form-group {
+    padding: 0.1rem 0rem;
+    margin-bottom: 0.4rem;
+    -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+  }
+
+  .clear-both{
+    clear: both
+  }
+
+  .btn[type="submit"] {
+    margin: 1.914rem auto;
+  }
+}
