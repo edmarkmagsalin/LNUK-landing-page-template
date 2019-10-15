@@ -6,6 +6,9 @@
         background-color: $darkColor;
         color: $lightColor;
     }
+    &.gray {
+        background-color: $grayColor;
+    }
     & a {
         color: $primaryColor;
         text-decoration: none;
