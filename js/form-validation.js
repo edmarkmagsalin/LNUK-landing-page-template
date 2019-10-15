@@ -159,11 +159,6 @@ $(document).ready(function () {
         validateEmailField(email_field);
     });
 
-    $("input[name='00N30000009PrYS']").bind("focusout", function(){
-        var postcode_field = $("input[name='00N30000009PrYS']");
-        validateField(postcode_field);
-    });
-
     $("input[name='Postcode__c']").bind("focusout", function(){
         var postcode_field = $("input[name='Postcode__c']");
         validateField(postcode_field);
@@ -179,32 +174,6 @@ $(document).ready(function () {
         validateDropdown(product);
     });
 
-    /*newest field validations as of 7/13/2018 - Gad*/
-    $("input[name='00N30000007f5h1']").bind("focusout", function(){
-        var specific_product = $("input[name='00N30000007f5h1']");
-        validateField(specific_product);
-    });
-
-    $("select[name='00N3A00000CDOzQ']").bind("focusout", function(){
-        var channel = $("select[name='00N3A00000CDOzQ']");
-        validateDropdown(channel);
-    });
-
-    $("input[name='00N3A00000CDNCG']").bind("focusout", function(){
-        var csa_email = $("input[name='00N3A00000CDNCG']");
-        validateField(csa_email);
-    });
-
-    $("input[name='00N3A00000CDNCQ']").bind("focusout", function(){
-        var sr_number = $("input[name='00N3A00000CDNCQ']");
-        validateField(sr_number);
-    });
-
-    $("select[name='00N3A00000CDNC6']").bind("focusout", function(){
-        var what_prompted = $("select[name='00N3A00000CDNC6']");
-        validateDropdown(what_prompted);
-    });
-
     $("input[name='Account_Number__c']").bind("focusout", function(){
         var account_number = $("input[name='Account_Number__c']");
         validateNotReqField(account_number);
@@ -217,13 +186,6 @@ $(document).ready(function () {
 
     $("input[name='Number_of_fee_earners__c']").bind("focusout", function(){
         var sr_number = $("input[name='Number_of_fee_earners__c']");
-        validateField(sr_number);
-    });
-
-    /* added for Subscription_number__c : harry*/
-
-    $("input[name='00N3A00000ChY5x']").bind("focusout", function(){
-        var sr_number = $("input[name='00N3A00000ChY5x']");
         validateField(sr_number);
     });
 
@@ -311,7 +273,7 @@ function Validate(){
 
         }
 
-        else if (($(this).val() != "None" && $(this).attr('id') == '00N3000000BZj7M') || ($(this).val() != "None" && $(this).attr('id') == 'Country__c')) {
+        else if ($(this).val() != "None" && $(this).attr('id') == 'Country__c') {
             $(this).removeClass("err");
             $(this).parent('.form-group').removeClass("form-err");
             $(this).parent('.form-group').addClass("form-pass");
@@ -363,7 +325,7 @@ function Validate(){
         } 
 
         else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
-            if ($("select[name='Country__c']").val() == "United Kingdom" || $("select[name='00N3000000BZj7M']").val() == "United Kingdom") {
+            if ($("select[name='Country__c']").val() == "United Kingdom") {
                 if(!checkMobileNumber($(this).val())) {
                     count++;
                 }
@@ -472,9 +434,6 @@ function validateEmailField(input_field){
 function checkEmail(str, i) {
     var re = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,5}|[0-9]{1,3})(\]?)$/;
     var public_email = /^[A-Za-z0-9._%+-]+@(gmail.com|hotmail.com|hotmail.co.uk|yahoo.com|yahoo.co.uk|outlook.com|btinternet.com|aol.com|live.co.uk|icloud.com|googlemail.com|me.com|sky.com|live.com|msn.com|ymail.com|btconnect.com|qq.com|aol.co.uk|ntlworld.com|mail.com|mac.com|mail.ru|linklaters.com|btopenworld.com|talktalk.net|mailinator.com|mvrht.net|gmx.com|)$/;
-    //var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    //var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.(\w{2}|(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum|COM|NET|ORG|EDU|INT|MIL|GOV|ARPA|BIZ|AERO|NAME|COOP|INFO|PRO|MUSEUM))$/;
-    //var str = $("#bus_email_text").val();
     if (re.test(str)) {
 
         if(public_email.test(str)) {
