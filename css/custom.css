@@ -71,7 +71,7 @@ h6, .h6 {
 
 /* layout */
 .content-section {
-  padding: 2.5em 0 0 0;
+  padding: 2.5em 0 2.5em 0;
   background-color: #fff;
   color: #333;
 }
@@ -81,17 +81,13 @@ h6, .h6 {
   color: #fff;
 }
 
+.content-section.gray {
+  background-color: #eee;
+}
+
 .content-section a {
   color: #e8171f;
   text-decoration: none;
-}
-
-.content-section:after {
-  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(204, 204, 204, 0) 0px, #ccc 100%) repeat scroll 0 0;
-  content: '';
-  display: block;
-  height: 60px;
-  opacity: 0.4;
 }
 
 /* Fix Navigation */
