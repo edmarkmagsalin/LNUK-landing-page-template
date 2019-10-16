@@ -309,10 +309,15 @@
   }
 
   #PrefWidget .prefHeader {
-    /* margin-top: 1rem; */
-    /* margin-bottom: 1rem; */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 0;
     background-color: transparent;
+  }
+
+  #PrefWidget .prefHeader p {
+    font-size: 0.67rem;
+    line-height: 1rem;
   }
 
   #PrefWidget .prefHeader a {
