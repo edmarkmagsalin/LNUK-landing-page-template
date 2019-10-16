@@ -610,11 +610,11 @@ h6, .h6 {
   padding: 0.25em 1em;
 }
 
-.form .form #PrefWidget .prefHeader {
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
-  padding: 0;
-  background-color: transparent;
+.form h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #ffffff;
 }
 
 .form .form-group {
@@ -625,16 +625,16 @@ h6, .h6 {
   transition: all 0.3s ease-in-out;
 }
 
+.form .form #PrefWidget .prefHeader {
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1rem; */
+  padding: 0;
+  background-color: transparent;
+}
+
 .form .form #PrefWidget .prefHeader a {
   font-size: inherit;
   color: inherit;
-}
-
-.form h3 {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 5px;
-  color: #ffffff;
 }
 
 .form .form .errMsg {
