@@ -27,6 +27,9 @@
   padding: 1rem;
   background-color: #dddddd;
   border-radius: 5px;
+  & a {
+    color: inherit;
+  }
   & p {
     font-size: 0.75rem;
     line-height: 1.3rem;

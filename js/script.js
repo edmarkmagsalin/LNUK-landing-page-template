@@ -1,5 +1,5 @@
 // Widget Save Code Starts
-$('.form').submit(function(e){
+$('#form').submit(function(e){
    
   IsValid = Validate();
        

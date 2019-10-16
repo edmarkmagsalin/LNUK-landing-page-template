@@ -344,6 +344,10 @@ h6, .h6 {
   border-radius: 5px;
 }
 
+#PrefWidget .prefHeader a {
+  color: inherit;
+}
+
 #PrefWidget .prefHeader p {
   font-size: 0.75rem;
   line-height: 1.3rem;
