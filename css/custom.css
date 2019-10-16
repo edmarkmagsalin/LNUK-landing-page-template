@@ -624,4 +624,21 @@ h6, .h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+.form .form #PrefWidget .prefHeader a {
+  font-size: inherit;
+  color: inherit;
+}
+
+.form h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.form .form .errMsg {
+  padding: 0;
+  font-size: 0.6rem;
+}
 /*# sourceMappingURL=custom.css.map */
