@@ -26,7 +26,7 @@ $('#form').submit(function(e){
     RecordObject.DivID = "PrefWidget"; // This is the name of the container that holds the preference centre widget.
 
     // form going to Salesforce
-    if (($('.form').attr('action').val()) == "https://webto.salesforce.com/servlet/servlet.WebToLead") {
+    if (($('#form').attr('action').val()) == "https://webto.salesforce.com/servlet/servlet.WebToLead") {
       alert('SF form submit');
       RecordObject.Title = $('select[name="salutation"]').val();
       RecordObject.Forename = $('input[name="first_name"]').val(); // REQUIRED
@@ -39,7 +39,7 @@ $('#form').submit(function(e){
       RecordObject.SourceCode = $('input[name="URL__c"]').val();  // URL
     }
     // form going to Marketing Cloud
-    else if (($('.form').attr('action').val()) == "https://cl.s7.exct.net/DEManager.aspx"){
+    else if (($('#form').attr('action').val()) == "https://cl.s7.exct.net/DEManager.aspx"){
       alert('MC form submit');
       RecordObject.Title = $('select[name="Salutation"]').val();
       RecordObject.Forename = $('input[name="FirstName"]').val(); // REQUIRED

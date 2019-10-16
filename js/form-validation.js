@@ -955,7 +955,7 @@ function Validate(){
         } else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
                 $(this).next().remove();
 
-        } else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
+        } else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
@@ -987,23 +987,11 @@ function Validate(){
         } else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
             $(this).next().remove();
         }
-
-        else if ($(this).val() == 'None' && $(this).attr('id') == '00N3000000BZj7M') {
-            if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
-            }
-            count++;
-        }
+        
         else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
             $(this).next().remove();
         }
 
-        else if ($(this).val() == 'None' && $(this).attr('id') == 'Practice_Areas__c') {
-            if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
-            }
-            count++;
-        }
         else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
             $(this).next().remove();
         }
@@ -1015,55 +1003,4 @@ function Validate(){
 
 
     });
-
-    $('.req').each(function() {
-        if ($(this).val().length == 0) {
-            $(this).focus();
-            return false;
-        } else if ($(this).val().length != 0 && $(this).next().hasClass('errMsg')) {
-            $(this).focus();
-            return false;
-        }
-    });
-
-     var c=document.getElementsByTagName('input');
-     for (var i = 0; i<c.length; i++){
-        if (c[i].type =='checkbox') {
-            if (!c[i].checked && count != 0){
-                alert("The form is not complete and has not been submitted yet. There are "+ count +" problems with you submittion.");
-                return false;
-            }
-          else {
-                return true;
-            }
-         } else if (check == false) {
-            if (count != 0){
-                alert("The form is not complete and has not been submitted yet. There are "+ count +" problems with you submittion.");
-                return false;
-            }
-           else {
-                return true;
-            }
-        }
-    }
-}
-
-
-
-function checkEmail(str, i) {
-    var re = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,5}|[0-9]{1,3})(\]?)$/;
-    //var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    //var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.(\w{2}|(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum|COM|NET|ORG|EDU|INT|MIL|GOV|ARPA|BIZ|AERO|NAME|COOP|INFO|PRO|MUSEUM))$/;
-    //var str = $("#bus_email_text").val();
-    if (re.test(str)) {
-        $('#email').next().remove();
-        return true;
-    } else {
-        if ($('#email').next().hasClass('errMsg')) {
-            $('#email').next().find('span').html('Your email address is invalid.');
-        } else if (!$('#email').next().hasClass('errMsg')) {
-            $('#email').parent('.form-group').append('<div class="errMsg"><span>Your email address is invalid.</span></div>');
-        }
-        return false;
-    }
 }
