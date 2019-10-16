@@ -1,16 +1,22 @@
 @import
   'abstracts/variables';
 
-/* base */
+/*======================
+=         Base         =
+=======================*/
 @import
   'base/reset';
 
-/* layout */
+/*========================
+=         Layout         =
+=========================*/
 @import
   'layout/sections',
   'layout/navigation';
 
-/* componets */
+/*============================
+=         Components         =
+============================*/
 @import
   'components/banner',
   'components/the-insight-bar',

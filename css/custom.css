@@ -1,4 +1,6 @@
-/* base */
+/*======================
+=         Base         =
+=======================*/
 html {
   -webkit-font-variant-ligatures: no-common-ligatures;
           font-variant-ligatures: no-common-ligatures;
@@ -69,7 +71,9 @@ h6, .h6 {
   }
 }
 
-/* layout */
+/*========================
+=         Layout         =
+=========================*/
 .content-section {
   padding: 2.5em 0 2.5em 0;
   background-color: #fff;
@@ -115,7 +119,9 @@ h6, .h6 {
   width: 200px;
 }
 
-/* componets */
+/*============================
+=         Components         =
+============================*/
 #banner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -300,7 +306,6 @@ h6, .h6 {
   padding: 1.5rem 0.5rem;
 }
 
-/* Form style */
 /* Optout styling */
 .optout {
   margin-top: 2rem;
