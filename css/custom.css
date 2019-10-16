@@ -609,4 +609,19 @@ h6, .h6 {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 0.25em 1em;
 }
+
+.form .form #PrefWidget .prefHeader {
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1rem; */
+  padding: 0;
+  background-color: transparent;
+}
+
+.form .form-group {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.1rem 0rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
 /*# sourceMappingURL=custom.css.map */
