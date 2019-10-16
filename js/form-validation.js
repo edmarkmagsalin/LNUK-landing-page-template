@@ -944,7 +944,9 @@ function Validate(){
                 $(this).next().remove();
             }
 
-        } else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
             if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
                 $(this).next().find('span').html('Please do not enter numbers.');
                 count++;
@@ -952,14 +954,20 @@ function Validate(){
                 $(this).next().remove();
             }
 
-        } else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
                 $(this).next().remove();
 
-        } else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-        } else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
+        }
+        
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
             if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
                 $(this).next().find('span').html('Numbers only.');
                 count++;
@@ -984,9 +992,7 @@ function Validate(){
             } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && $.isNumeric($(this).val())) {
                 $(this).next().remove();
             }
-        } else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
-            $(this).next().remove();
-        }
+        } 
         
         else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
             $(this).next().remove();
