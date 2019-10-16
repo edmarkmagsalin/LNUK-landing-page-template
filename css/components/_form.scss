@@ -332,4 +332,15 @@
     margin-bottom: 0.1rem;
     font-size: 0.6rem;
   }
+  .form-group.form-err:before {
+    content: '';
+    border: 0;
+  }
+  .err {
+    border: 0;
+  }
+
+  .errMsg p {
+    font-size: 0.6rem;
+  }
 }

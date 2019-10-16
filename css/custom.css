@@ -662,4 +662,17 @@ h6, .h6 {
   margin-bottom: 0.1rem;
   font-size: 0.6rem;
 }
+
+.form .form-group.form-err:before {
+  content: '';
+  border: 0;
+}
+
+.form .err {
+  border: 0;
+}
+
+.form .errMsg p {
+  font-size: 0.6rem;
+}
 /*# sourceMappingURL=custom.css.map */
