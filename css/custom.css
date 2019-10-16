@@ -677,4 +677,9 @@ h6, .h6 {
 .form .errMsg p {
   font-size: 0.6rem;
 }
+
+.form .name-group {
+  height: 31px;
+  line-height: inherit;
+}
 /*# sourceMappingURL=custom.css.map */
