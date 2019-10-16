@@ -1,6 +1,7 @@
 /*======================
 =         Base         =
 =======================*/
+/* Reset */
 html {
   -webkit-font-variant-ligatures: no-common-ligatures;
           font-variant-ligatures: no-common-ligatures;
@@ -74,6 +75,7 @@ h6, .h6 {
 /*========================
 =         Layout         =
 =========================*/
+/* Section */
 .content-section {
   padding: 2.5em 0 2.5em 0;
   background-color: #fff;
@@ -94,7 +96,7 @@ h6, .h6 {
   text-decoration: none;
 }
 
-/* Fix Navigation */
+/* Navigation */
 .fix-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,6 +124,7 @@ h6, .h6 {
 /*============================
 =         Components         =
 ============================*/
+/* Banner */
 #banner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,6 +177,7 @@ h6, .h6 {
   background-color: #333;
 }
 
+/* The Insight Bar */
 .the-insight-bar {
   padding: 0;
   display: inline-block;
@@ -264,6 +268,7 @@ h6, .h6 {
   line-height: calc(1em + 3px);
 }
 
+/* Cookie Consent */
 .cc-banner.cc-theme-edgeless .cc-message {
   margin-left: 0;
   margin-right: 1em;
@@ -280,6 +285,7 @@ h6, .h6 {
   width: 100%;
 }
 
+/* Tabs */
 .nav.nav-tabs {
   border-bottom: 3px solid #e8171f;
 }
@@ -306,6 +312,7 @@ h6, .h6 {
   padding: 1.5rem 0.5rem;
 }
 
+/* Form */
 /* Optout styling */
 .optout {
   margin-top: 2rem;
