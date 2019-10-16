@@ -663,12 +663,14 @@ h6, .h6 {
   font-size: 0.6rem;
 }
 
-.form .form-group.form-err:before {
+.form .form-group.form-err:before,
+.form .form-group.form-pass:before {
   content: '';
   border: 0;
 }
 
-.form .err {
+.form .err,
+.form .pass {
   border: 0;
 }
 

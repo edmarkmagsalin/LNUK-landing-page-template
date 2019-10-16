@@ -332,11 +332,13 @@
     margin-bottom: 0.1rem;
     font-size: 0.6rem;
   }
-  .form-group.form-err:before {
+  .form-group.form-err:before,
+  .form-group.form-pass:before {
     content: '';
     border: 0;
   }
-  .err {
+  .err,
+  .pass {
     border: 0;
   }
 
