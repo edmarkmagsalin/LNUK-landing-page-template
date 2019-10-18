@@ -271,8 +271,10 @@ $(document).scroll(function() {
     if (y >= 410) {
       stickyForm.css({
         "position": "fixed",
-        "top": "10",
-        "left": "80"
+        "top":"88px",
+        "max-width": "350px",
+        "right": "20px",
+        "z-index": "99999"
       });
     }
     else {
