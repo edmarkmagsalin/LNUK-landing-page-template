@@ -261,9 +261,23 @@ $(document).ready(function() {
   }
   // Widget Get Code : END
 
-  // Sticky form : BEGIN
-  var elements = document.querySelectorAll('.sticky');
-  Stickyfill.add(elements);
-  // Sticky form : END
-
 });
+
+// Sticky form : BEGIN
+$(document).scroll(function() {
+  if (window.matchMedia("(min-width: 992px)").matches) {
+    var y = $(document).scrollTop(),
+    stickyForm = $("#form");
+    if (y >= 410) {
+      stickyForm.css({
+        position: "fixed",
+        "top": "10",
+        "left": "80"
+      });
+    }
+    else {
+      stickyForm.css("position", "sticky");
+    }
+  }
+});
+// Sticky form : END
