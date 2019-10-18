@@ -273,7 +273,7 @@ $(document).scroll(function() {
         "position": "fixed",
         "top":"88px",
         "max-width": "350px",
-        "right": "20px",
+        "right": "70px",
         "z-index": "99999"
       });
     }
