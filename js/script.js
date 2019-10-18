@@ -270,9 +270,9 @@ $(document).scroll(function() {
     stickyForm = $(".form");
     if (y >= 410) {
       stickyForm.css({
-        position: "fixed",
-        top: "10",
-        left: "80"
+        "position": "fixed",
+        "top": "10",
+        "left": "80"
       });
     }
     else {
