@@ -692,4 +692,8 @@ h6, .h6 {
   height: 31px;
   line-height: inherit;
 }
+
+.form .form-group.form-err select {
+  padding-left: 10px;
+}
 /*# sourceMappingURL=custom.css.map */
