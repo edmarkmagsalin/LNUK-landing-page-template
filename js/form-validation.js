@@ -225,6 +225,116 @@ function Validate(){
 
     $('.req').each(function() {
 
+        // MC validation
+
+
+        if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+
+            if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).closest('.oneField').append('<div class="errMsg"><span>Please confirm checkbox.</span></div>');
+                count++;
+            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                count++;
+            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == true) {
+                $(this).closest('.inputWrapper').next().remove();
+            }
+
+        }
+        if ($(this).val().length == 0) {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+
+        else if ($(this).val() == 'None' && $(this).attr('id') == 'salutation') {
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+            }
+            count++;
+        }
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'first_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+
+            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
+                $(this).next().remove();
+
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
+            if(!checkEmail($(this).val(), this)) {
+                count++;
+            }
+        }
+        
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
+            if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Numbers only.');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Phone number is too short.');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Phone number is too short.</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
+                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
+                $(this).next().find('span').html('Numbers only');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && $.isNumeric($(this).val())) {
+                $(this).next().remove();
+            }
+        } 
+        
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
+
+        if ($(this).type =='checkbox') {
+            check == true;
+        }
+        // MC validation
+
+
+
+
+
+
         if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
 
             $(this).addClass("err");
@@ -890,123 +1000,4 @@ function changeColor(input_field){
         input_field.css("color","#555");
         console.log("changed");
     }
-}
-
-
-
-
-
-
-
-
-
-function Validate(){
-
-    var count = 0, check = false;
-
-    $('.req').each(function() {
-         if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
-
-            if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                $(this).closest('.oneField').append('<div class="errMsg"><span>Please confirm checkbox.</span></div>');
-                count++;
-            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                count++;
-            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == true) {
-                $(this).closest('.inputWrapper').next().remove();
-            }
-
-        }
-        if ($(this).val().length == 0) {
-            if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
-            }
-            count++;
-        }
-
-        else if ($(this).val() == 'None' && $(this).attr('id') == 'salutation') {
-            if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
-            }
-            count++;
-        }
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
-        }
-
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'first_name') {
-            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
-                $(this).next().find('span').html('Please do not enter numbers.');
-                count++;
-
-            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
-                $(this).next().remove();
-            }
-
-        }
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
-            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
-                $(this).next().find('span').html('Please do not enter numbers.');
-                count++;
-            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
-                $(this).next().remove();
-            }
-
-        }
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
-                $(this).next().remove();
-
-        }
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
-            if(!checkEmail($(this).val(), this)) {
-                count++;
-            }
-        }
-        
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
-            if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
-                $(this).next().find('span').html('Numbers only.');
-                count++;
-            } else if ($(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
-                $(this).next().find('span').html('Phone number is too short.');
-                count++;
-            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Phone number is too short.</span></div>');
-                count++;
-            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
-                count++;
-            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
-                count++;
-            } else if (!$(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
-                count++;
-            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
-                $(this).next().find('span').html('Numbers only');
-                count++;
-            } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && $.isNumeric($(this).val())) {
-                $(this).next().remove();
-            }
-        } 
-        
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
-        }
-
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
-        }
-
-        if ($(this).type =='checkbox') {
-            check == true;
-        }
-
-
-
-    });
 }

@@ -121,8 +121,8 @@ $('#form').submit(function(e){
       Flag.ResponseChannel = $('#responsechannel2 option:selected').val();
 
       Flag.AddedBy = "CAREWidget";
-      Flag.AddedByID = $('input[name="CSPortalUserIDforADMINWidget"]').val();   // from CS Portal
-      Flag.URN3 = $('input[name="ContactNumber"]').val();       // Unique supporter reference number
+      Flag.AddedByID = $('input[name="CSPortalUserIDforADMINWidget"]').val(); // from CS Portal
+      Flag.URN3 = $('input[name="ContactNumber"]').val(); // Unique supporter reference number
       
       FlagArray.push(Flag);
 
@@ -141,7 +141,7 @@ $('#form').submit(function(e){
       type: "POST",
       dataType: "json",
       success : function(r,s,x){
-                console.log("Successful SaveWidget call\r\n");
+        console.log("Successful SaveWidget call\r\n");
         // On successful post event, submit the form to the standard form handler on your website.
         $('#form').submit();
       },
@@ -260,5 +260,10 @@ $(document).ready(function() {
     });
   }
   // Widget Get Code : END
+
+  // Sticky form : BEGIN
+  var elements = document.querySelectorAll('.sticky');
+  Stickyfill.add(elements);
+  // Sticky form : END
 
 });
