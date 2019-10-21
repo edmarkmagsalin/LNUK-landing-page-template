@@ -264,13 +264,10 @@ $(document).ready(function() {
 });
 
 // Sticky form : BEGIN
-$(document).scroll(function() {
-  if (window.matchMedia("(min-width: 992px)").matches) {
-    var y = $(document).scrollTop(),
-    stickyForm = $(".form");
-    if (y >= 410) {
-      stickyForm.toggleClass("sticky-form");
-    }
-  }
-});
+if ($(window).scrollTop() > 410){
+  $(".form").addClass("sticky-form");
+}
+else{
+  $(".form").removeClass("sticky-form");
+}
 // Sticky form : END
