@@ -264,10 +264,16 @@ $(document).ready(function() {
 });
 
 // Sticky form : BEGIN
-if ($(window).scrollTop() > 410){
-  $(".form").addClass("sticky-form");
-}
-else{
-  $(".form").removeClass("sticky-form");
-}
+$(document).scroll(function() {
+  //if (window.matchMedia("(min-width: 992px)").matches) {
+  var y = $(document).scrollTop(),
+  stickyForm = $(".form");
+  if (y >= 410) {
+    stickyForm.addClass("sticky-form");
+  }
+  else{
+    stickyForm.removeClass("sticky-form");
+  }
+  //}
+});
 // Sticky form : END
