@@ -269,16 +269,7 @@ $(document).scroll(function() {
     var y = $(document).scrollTop(),
     stickyForm = $(".form");
     if (y >= 410) {
-      stickyForm.css({
-        "position": "fixed",
-        "top":"88px",
-        "max-width": "350px",
-        "right": "70px",
-        "z-index": "99999"
-      });
-    }
-    else {
-      stickyForm.css("position", "sticky");
+      stickyForm.toggleClass("sticky-form");
     }
   }
 });
