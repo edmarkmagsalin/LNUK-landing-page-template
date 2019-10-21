@@ -265,15 +265,13 @@ $(document).ready(function() {
 
 // Sticky form : BEGIN
 $(document).scroll(function() {
-  //if (window.matchMedia("(min-width: 992px)").matches) {
   var y = $(document).scrollTop(),
   stickyForm = $(".form");
-  if (y >= 410) {
+  if (y >= 390) {
     stickyForm.addClass("sticky-form");
   }
   else{
     stickyForm.removeClass("sticky-form");
   }
-  //}
 });
 // Sticky form : END
