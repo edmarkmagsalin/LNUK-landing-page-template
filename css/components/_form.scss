@@ -366,5 +366,9 @@
 
 .sticky-form {
   position: fixed;
-  color: red;
+  top: 88px;
+  max-width: 350px;
+  @media (min-width: 768px) {
+    position: static;
+  }
 }
