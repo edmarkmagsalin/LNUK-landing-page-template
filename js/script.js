@@ -27,7 +27,7 @@ $('#form').submit(function(e){
 
     // form going to Salesforce
     if (($('#form').attr('action').val()) == "https://webto.salesforce.com/servlet/servlet.WebToLead") {
-      alert('SF form submit');
+      console.log('SF form submit');
       RecordObject.Title = $('select[name="salutation"]').val();
       RecordObject.Forename = $('input[name="first_name"]').val(); // REQUIRED
       RecordObject.Surname = $('input[name="last_name"]').val(); // REQUIRED
@@ -40,7 +40,7 @@ $('#form').submit(function(e){
     }
     // form going to Marketing Cloud
     else if (($('#form').attr('action').val()) == "https://cl.s7.exct.net/DEManager.aspx"){
-      alert('MC form submit');
+      console.log('MC form submit');
       RecordObject.Title = $('select[name="Salutation"]').val();
       RecordObject.Forename = $('input[name="FirstName"]').val(); // REQUIRED
       RecordObject.Surname = $('input[name="Surname"]').val(); // REQUIRED
@@ -143,7 +143,7 @@ $('#form').submit(function(e){
       success : function(r,s,x){
         console.log("Successful SaveWidget call\r\n");
         // On successful post event, submit the form to the standard form handler on your website.
-        $('#form').submit();
+        //$('#form').submit();
       },
       error: function(x,s,e){
         console.log("Error sending data to the preference centre: " + e);
