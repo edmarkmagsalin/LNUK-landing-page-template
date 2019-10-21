@@ -519,8 +519,7 @@ h6, .h6 {
 
 /* tooltip stylings */
 .tooltip {
-  font-family: 'Lato', 'Roboto', 'SegoeUI', 'Helvetica Neue', 'Helvetica',
- sans-serif;
+  font-family: 'Lato', 'Roboto', 'SegoeUI', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   z-index: 1;
@@ -700,7 +699,7 @@ h6, .h6 {
   max-width: 350px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 991.98px) {
   .sticky-form {
     position: static;
   }
