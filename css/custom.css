@@ -689,7 +689,8 @@ h6, .h6 {
   line-height: inherit;
 }
 
-.form .form-group.form-err select {
+.form .form-group.form-err select,
+.form .form-group.form-pass select {
   padding-left: 10px;
 }
 
