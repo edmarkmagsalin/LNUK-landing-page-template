@@ -10,9 +10,9 @@ $('#form').submit(function(e){
     $(this).off('submit'); // Unbind the submit event so this function doesn't fire upon the next submit
     
     var FormID = '16'; // Your form id
-    var LicenseID = '0A94C7C6-FBD0-4178-82F9-6791A23C33FA'; // Your preference centre License ID
+    var LicenseID = '9273c8a0-1b7f-4ab6-9a83-1087d12eb909'; // Your preference centre License ID
     
-    var PostURL = 'https://prefservice.smartwebportal.co.uk/preferencecentrewebservice.ashx?action=SaveWidget&formID='+FormID+'&LicenseID='+LicenseID;
+    var PostURL = 'https://prefserviceqa.smartwebportal.co.uk/preferencecentrewebservice.ashx?action=SaveWidget&formID='+FormID+'&LicenseID='+LicenseID;
 
     var ObjectArray = []; // Define an empty Object Array
     var RecordObject = {}; // Define an empty Record Object for holding data
@@ -231,12 +231,12 @@ $(document).ready(function() {
   // Add smooth scrolling to all links : END
 
   // Widget DOM Ready Event :  BEGIN
-  GetWidget('16', '0A94C7C6-FBD0-4178-82F9-6791A23C33FA', 'PrefWidget', '00');
+  GetWidget('16', '9273c8a0-1b7f-4ab6-9a83-1087d12eb909', 'PrefWidget', '00');
   // Widget DOM Ready Event : END
 
   // Widget Get Code : BEGIN
   function GetWidget(FormID, LicenseID, DivID, Type) {
-    var url = 'https://prefservice.smartwebportal.co.uk/preferencecentrewebservice.ashx?action=GetWidget&formID=' + FormID + '&divID=' + DivID + '&LicenseID=' + LicenseID + '&widgettype=' + Type;
+    var url = 'https://prefserviceqa.smartwebportal.co.uk/preferencecentrewebservice.ashx?action=GetWidget&formID=' + FormID + '&divID=' + DivID + '&LicenseID=' + LicenseID + '&widgettype=' + Type;
     console.log('Getting widget type: ' + Type);
     
     $.ajax({
