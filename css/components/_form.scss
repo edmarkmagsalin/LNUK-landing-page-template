@@ -130,7 +130,7 @@
     font-family: FontAwesome;
     position: absolute;
     display: inline-block;
-    float: right;
+    // float: right;
     border-radius: 20px;
     width: 23px;
     height: 23px;
@@ -183,12 +183,12 @@
 
   & input[name='00N3000000BjCM0'] {
     margin-top: 0.3rem;
-    float: left;
+    // float: left;
   }
 
   & input[name='Legal_Practioner_and_Trial_Usage_Confirm__c'] {
     margin-top: 0.3rem;
-    float: left;
+    // float: left;
   }
 
   & select option {
@@ -266,7 +266,7 @@
     font-size: 0px;
     top: 12px;
     width: 0;
-    float: left;
+    // float: left;
   }
 
   & input[type='checkbox']:checked + label {
@@ -333,7 +333,7 @@
     font-size: 0.67rem;
     line-height: 1rem;
   }
-  
+
   .errMsg {
     padding: 0;
     padding-top: 0.1rem;
@@ -359,11 +359,12 @@
     height: 31px;
     line-height: inherit;
   }
-  .form-group.form-err select{
+  .form-group.form-err select {
     padding-left: 10px;
   }
 }
 
-.sticky-form{
+.sticky-form {
   position: fixed;
+  color: red;
 }

@@ -449,7 +449,6 @@ h6, .h6 {
   font-family: FontAwesome;
   position: absolute;
   display: inline-block;
-  float: right;
   border-radius: 20px;
   width: 23px;
   height: 23px;
@@ -504,12 +503,10 @@ h6, .h6 {
 
 .form-group input[name='00N3000000BjCM0'] {
   margin-top: 0.3rem;
-  float: left;
 }
 
 .form-group input[name='Legal_Practioner_and_Trial_Usage_Confirm__c'] {
   margin-top: 0.3rem;
-  float: left;
 }
 
 .form-group select option {
@@ -595,7 +592,6 @@ h6, .h6 {
   font-size: 0px;
   top: 12px;
   width: 0;
-  float: left;
 }
 
 .cb input[type='checkbox']:checked + label {
@@ -695,5 +691,10 @@ h6, .h6 {
 
 .form .form-group.form-err select {
   padding-left: 10px;
+}
+
+.sticky-form {
+  position: fixed;
+  color: red;
 }
 /*# sourceMappingURL=custom.css.map */
