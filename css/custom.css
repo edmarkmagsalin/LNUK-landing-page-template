@@ -501,12 +501,9 @@ h6, .h6 {
   margin-left: 1.5rem;
 }
 
-.form-group input[name='00N3000000BjCM0'] {
-  margin-top: 0.3rem;
-}
-
 .form-group input[name='Legal_Practioner_and_Trial_Usage_Confirm__c'] {
   margin-top: 0.3rem;
+  float: left;
 }
 
 .form-group select option {
