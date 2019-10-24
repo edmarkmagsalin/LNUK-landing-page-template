@@ -369,7 +369,7 @@ function Validate(){
         }
         // if MC form
         if ($('#form').attr('action') == "https://cl.s7.exct.net/DEManager.aspx"){
-            alert("The form is not complete and has not been submitted yet.<br>There are "+ count +" problems with your submission.");
+            alert("The form is not complete and has not been submitted yet.\nThere are "+ count +" problems with your submission.");
         }
         console.log("false")
         return false;
