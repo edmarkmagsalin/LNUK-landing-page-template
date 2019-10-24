@@ -276,6 +276,7 @@ $(document).ready(function() {
 // });
 
 $(document).on('scroll', function() {
+  stickyForm = $(".form");
   if($(this).scrollTop()>=$('#form').position().top){
     stickyForm.addClass("sticky-form");
   }
