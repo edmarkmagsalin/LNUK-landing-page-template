@@ -268,7 +268,7 @@ $(document).scroll(function() {
   var y = $(document).scrollTop(),
   offsetHeight = document.getElementById("banner").offsetHeight,
   stickyForm = $(".form");
-  if (y >= offsetHeight) {
+  if (y >= (offsetHeight+45)) { //45px is from the padding-top of the section below the banner
     stickyForm.addClass("sticky-form");
   }
   else{
