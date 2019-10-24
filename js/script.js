@@ -264,20 +264,10 @@ $(document).ready(function() {
 });
 
 // Sticky form : BEGIN
-// $(document).scroll(function() {
-//   var y = $(document).scrollTop(),
-//   stickyForm = $(".form");
-//   if (y >= 390) {
-//     stickyForm.addClass("sticky-form");
-//   }
-//   else{
-//     stickyForm.removeClass("sticky-form");
-//   }
-// });
-
-$(document).on('scroll', function() {
+$(document).scroll(function() {
+  var y = $(".form").scrollTop(),
   stickyForm = $(".form");
-  if($(this).scrollTop()>=$('#form').position().top){
+  if (y > 0) {
     stickyForm.addClass("sticky-form");
   }
   else{

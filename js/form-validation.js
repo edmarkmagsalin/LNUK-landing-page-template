@@ -227,13 +227,14 @@ function Validate(){
 
         if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
 
-            if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                $(this).closest('.oneField').append('<div class="errMsg"><span>Please confirm checkbox.</span></div>');
+            $(this).addClass("err");
+            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
+
+            if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
                 count++;
-            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+            } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
                 count++;
-            } else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == true) {
-                $(this).closest('.inputWrapper').next().remove();
             }
 
         }
