@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 
 
-    $("input[name='phone']").bind("keypress keyup blur", function (e) {
+    $("input[id='phone']").bind("keypress keyup blur", function (e) {
         var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
 
         if (isAndroid) {
@@ -71,14 +71,14 @@ $(document).ready(function () {
         }
     });
 
-    $("input[name='first_name']").bind("keypress keyup blur", function(e){
+    $("input[id='first_name']").bind("keypress keyup blur", function(e){
         var inp = String.fromCharCode(e.keyCode);
         if(/[0-9]/.test(inp)) {
             removeNumber($(this));
         }
     });
 
-    $("input[name='last_name']").bind("keypress keyup blur", function(e){
+    $("input[id='last_name']").bind("keypress keyup blur", function(e){
         var inp = String.fromCharCode(e.keyCode);
         if(/[0-9]/.test(inp)) {
             removeNumber($(this));
@@ -223,21 +223,11 @@ function Validate(){
 
     var count = 0, check = false;
 
+    // validate all .req : BEGIN
     $('.req').each(function() {
-
-        if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
-
-            $(this).addClass("err");
-            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
-
-            if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
-                count++;
-            } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                count++;
-            }
-
-        }
+        
+        //for both MC and SF
+        //check if empty
         if ($(this).val().length == 0) {
             if (!$(this).next().hasClass('errMsg')) {
                 $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
@@ -245,28 +235,31 @@ function Validate(){
             count++;
         }
 
+        //for both MC and SF
+        //if salutation field is none
         else if ($(this).val() == 'None' && $(this).attr('id') == 'salutation') {
             if (!$(this).next().hasClass('errMsg')) {
                 $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
             }
             count++;
         }
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
-        }
 
-
+        //for both MC and SF
+        //if first name is empty and contain number
         else if ($(this).val().length != 0 && $(this).attr('id') == 'first_name') {
             if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
                 $(this).next().find('span').html('Please do not enter numbers.');
                 count++;
 
-            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+            }
+            else($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
                 $(this).next().remove();
             }
 
         }
-
+        
+        //for both MC and SF
+        //if last name is empty and contain number
         else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
             if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
                 $(this).next().find('span').html('Please do not enter numbers.');
@@ -277,15 +270,19 @@ function Validate(){
 
         }
 
+        //for both MC and SF
         else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
-                $(this).next().remove();
-
+            $(this).next().remove();
         }
 
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
-            if(!checkEmail($(this).val(), this)) {
-                count++;
-            }
+        //for SF
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'title') {
+            $(this).next().remove();
+        }
+
+        //for MC
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'Job title') {
+            $(this).next().remove();
         }
         
         else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
@@ -314,19 +311,21 @@ function Validate(){
                 $(this).next().remove();
             }
         } 
-        
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
-        }
 
-        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
-            $(this).next().remove();
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
+            if(!checkEmail($(this).val(), this)) {
+                count++;
+            }
+            else ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+                $(this).next().remove();
+            }
         }
-
-        // MC validation
         else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
             if(!checkEmail($(this).val(), this)) {
                 count++;
+            }
+            else ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+                $(this).next().remove();
             }
         }
 
@@ -345,6 +344,23 @@ function Validate(){
         }
 
     });
+    // validate all .req : END
+
+    
+
+    if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+
+        $(this).addClass("err");
+        /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
+
+        if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+            $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
+            count++;
+        } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+            count++;
+        }
+
+    }
 
     $('.req').each(function() {
         if ($(this).val().length == 0 || $(this).val() == "None") {
@@ -358,6 +374,7 @@ function Validate(){
 
 
     if (count != 0 | check=="false"){
+
         // if the alert box is not yet existing
         if (!$(".wFormContainer .errAlert").length > 0) {
             $(".wFormContainer").prepend('<div class="alert alert-danger errAlert" role="alert"><p><strong>The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.</strong></p></div>');
@@ -367,10 +384,12 @@ function Validate(){
         else if($(".wFormContainer .errAlert").length > 0) {
             $(".errAlert").find('p').html('The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.');
         }
-        // if MC form
+
+        // if MC form, use alert for error message
         if ($('#form').attr('action') == "https://cl.s7.exct.net/DEManager.aspx"){
             alert("The form is not complete and has not been submitted yet.\nThere are "+ count +" problems with your submission.");
         }
+
         console.log("false")
         return false;
     }
@@ -378,43 +397,6 @@ function Validate(){
         console.log("true")
         return true;
     }
-
-    // var c=document.getElementsByTagName('input');
-  
-    // for (var i = 0; i<c.length; i++){
-        
-    //     if (c[i].type =='checkbox') {
-    //         if (!c[i].checked && count != 0){
-
-                
-    //             alert("The form is not complete and has not been submitted yet.<br>There are "+ count +" problems with your submission.");
-
-    //             return false;
-    //         }
-    //         else {
-    //             return true;
-    //         }
-    //      }
-
-    //     else if (check == false) {
-    //         if (count != 0){
-    //             // if the alert box is not yet existing
-    //             if (!$(".wFormContainer .errAlert").length > 0) {
-    //                 $(".wFormContainer").prepend('<div class="alert alert-danger errAlert" role="alert"><p><strong>The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.</strong></p></div>');
-    //             }
-                
-    //             // if the alert box is existing
-    //             else if($(".wFormContainer .errAlert").length > 0) {
-    //                 $(".errAlert").find('p').html('The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.');
-    //             }
-
-    //             return false;
-    //         }
-    //         else {
-    //             return true;
-    //         }
-    //     }
-    // }
 
 }
 
