@@ -265,9 +265,10 @@ $(document).ready(function() {
 
 // Sticky form : BEGIN
 $(document).scroll(function() {
-  var y = $(".form").scrollTop(),
+  var y = $(document).scrollTop(),
+  offsetHeight = document.getElementById("banner").offsetHeight,
   stickyForm = $(".form");
-  if (y > 0) {
+  if (y >= offsetHeight) {
     stickyForm.addClass("sticky-form");
   }
   else{
