@@ -628,6 +628,7 @@ h6, .h6 {
 
 .form p {
   font-size: 12px;
+  font-weight: 400;
 }
 
 .form select {
@@ -677,8 +678,10 @@ h6, .h6 {
   border: 0;
 }
 
-.form .errMsg p {
+.form .errMsg p,
+.form .errMsg span {
   font-size: 0.6rem;
+  font-weight: 400;
 }
 
 .form .name-group {

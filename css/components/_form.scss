@@ -301,6 +301,7 @@
 
   p {
     font-size: 12px;
+    font-weight: 400;
   }
 
   select {
@@ -347,8 +348,10 @@
     border: 0;
   }
 
-  .errMsg p {
+  .errMsg p,
+  .errMsg span {
     font-size: 0.6rem;
+    font-weight: 400;
   }
   .name-group {
     height: 31px;
