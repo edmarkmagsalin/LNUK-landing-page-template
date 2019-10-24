@@ -154,8 +154,8 @@ $(document).ready(function () {
 
     });
 
-    $("input[name='email']").bind("focusout", function(){
-        var email_field = $("input[name='email']");
+    $("input[id='email']").bind("focusout", function(){
+        var email_field = $("input[id='email']");
         validateEmailField(email_field);
     });
 
