@@ -243,6 +243,9 @@ function Validate(){
             }
             count++;
         }
+        else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            $(this).next().remove();
+        }
 
         //for both MC and SF
         //if first name is empty and contain number
@@ -277,12 +280,16 @@ function Validate(){
 
         //for SF
         else if ($(this).val().length != 0 && $(this).attr('id') == 'title') {
-            $(this).next().remove();
+            if ($(this).next().hasClass('errMsg')) {
+                $(this).next().remove();
+            }
         }
 
         //for MC
         else if ($(this).val().length != 0 && $(this).attr('id') == 'Job title') {
-            $(this).next().remove();
+            if ($(this).next().hasClass('errMsg')) {
+                $(this).next().remove();
+            }
         }
         
         else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
@@ -320,6 +327,7 @@ function Validate(){
                 $(this).next().remove();
             }
         }
+
         else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
             if(!checkEmail($(this).val(), this)) {
                 count++;
