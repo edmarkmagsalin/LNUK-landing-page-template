@@ -316,7 +316,7 @@ function Validate(){
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-            else ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
                 $(this).next().remove();
             }
         }
@@ -324,7 +324,7 @@ function Validate(){
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-            else ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
                 $(this).next().remove();
             }
         }
