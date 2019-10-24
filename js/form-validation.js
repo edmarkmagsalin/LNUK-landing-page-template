@@ -252,7 +252,7 @@ function Validate(){
                 count++;
 
             }
-            else($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+            else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
                 $(this).next().remove();
             }
 
