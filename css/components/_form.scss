@@ -367,6 +367,7 @@
   position: fixed;
   top: 88px;
   max-width: 350px;
+  z-index: 99999;
   @media (max-width: 991.98px) {
     position: static;
     max-width: 100%;
