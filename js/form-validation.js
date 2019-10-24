@@ -225,9 +225,6 @@ function Validate(){
 
     $('.req').each(function() {
 
-        // MC validation
-
-
         if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
 
             if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
@@ -325,127 +322,11 @@ function Validate(){
             $(this).next().remove();
         }
 
-        if ($(this).type =='checkbox') {
-            check == true;
-        }
         // MC validation
-
-
-
-
-
-
-        if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
-
-            $(this).addClass("err");
-            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
-
-            if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
-                count++;
-            } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-                count++;
-            }
-
-        }
-
-        else if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == true) {
-            if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == true) {
-                $(this).removeClass("err");
-                $(this).parent('.form-group').removeClass("form-err");
-                $(this).addClass("pass");
-                $(this).next().next().remove();
-            } 
-        }
-
-        else if ($(this).val().length == 0 || $(this).val() == "None") {
-
-            $(this).removeClass("pass");
-            $(this).parent('.form-group').removeClass("form-pass");
-            $(this).addClass("err");
-            $(this).parent('.form-group').addClass("form-err");
-            $(this).parent('.form-group').find("label").addClass("ic-err");
-
-            if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><p>This field is required.</p></div>');
-            }
-            count++;
-        }
-
-        else if ($(this).val() != "None" && $(this).attr('id') == 'salutation') {
-            $(this).removeClass("err");
-            $(this).parent('.form-group').removeClass("form-err");
-            $(this).parent('.form-group').addClass("form-pass");
-            $(this).addClass("pass");
-            $(this).next().remove();
-            $(this).parent('.form-group').find("label").removeClass("ic-err");
-            $(this).parent('.form-group').find("label").addClass("ic-pass");
-
-        }
-
-        else if ($(this).val() != "None" && $(this).attr('id') == 'Country__c') {
-            $(this).removeClass("err");
-            $(this).parent('.form-group').removeClass("form-err");
-            $(this).parent('.form-group').addClass("form-pass");
-            $(this).addClass("pass");
-            if ($(this).val() == "United States of America" && $('form').hasClass('freetrial')) {
-                console.log("true");
-                if ($(this).next().hasClass('errMsg')) {
-                    $(this).next().find('p').html('Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a>');
-                } else if (!$(this).next().hasClass('errMsg')) {
-                    $(this).parent('.form-group').append('<div class="errMsg"><p>Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a></p></div>');
-                }
-                $(this).next('.errMsg').css("color", "#0c5fca");
-                $(this).next('.errMsg').css("background-color", "#cce5ff");
-            }
-            else { 
-                console.log("false");
-                $(this).next().remove();
-            }
-            $(this).parent('.form-group').find("label").removeClass("ic-err");
-            $(this).parent('.form-group').find("label").addClass("ic-pass");
-
-        }
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
-            $(this).removeClass("err");
-            $(this).parent('.form-group').removeClass("form-err");
-            $(this).parent('.form-group').addClass("form-pass");
-            $(this).addClass("pass");
-            $(this).next().remove();
-            $(this).parent('.form-group').find("label").removeClass("ic-err");
-            $(this).parent('.form-group').find("label").addClass("ic-pass");
-
-        }
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'title') {
-            $(this).removeClass("err");
-            $(this).parent('.form-group').removeClass("form-err");
-            $(this).parent('.form-group').addClass("form-pass");
-            $(this).addClass("pass");
-            $(this).next().remove();
-            $(this).parent('.form-group').find("label").removeClass("ic-err");
-            $(this).parent('.form-group').find("label").addClass("ic-pass");
-        }
-
         else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-        } 
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
-            if ($("select[name='Country__c']").val() == "United Kingdom") {
-                if(!checkMobileNumber($(this).val())) {
-                    count++;
-                }
-            }
-            else {
-                if(!validatePhone($(this))) {
-                    count++;
-                }
-            }
-            
         }
 
         else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
@@ -475,41 +356,64 @@ function Validate(){
     });
 
 
-    var c=document.getElementsByTagName('input');
+    if (count != 0 | check=="false"){
+        // if the alert box is not yet existing
+        if (!$(".wFormContainer .errAlert").length > 0) {
+            $(".wFormContainer").prepend('<div class="alert alert-danger errAlert" role="alert"><p><strong>The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.</strong></p></div>');
+        }
+
+        // if the alert box is existing
+        else if($(".wFormContainer .errAlert").length > 0) {
+            $(".errAlert").find('p').html('The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.');
+        }
+        // if MC form
+        if ($('#form').attr('action') == "https://cl.s7.exct.net/DEManager.aspx"){
+            alert("The form is not complete and has not been submitted yet.<br>There are "+ count +" problems with your submission.");
+        }
+        console.log("false")
+        return false;
+    }
+    else{
+        console.log("true")
+        return true;
+    }
+
+    // var c=document.getElementsByTagName('input');
   
-    for (var i = 0; i<c.length; i++){
+    // for (var i = 0; i<c.length; i++){
         
-        if (c[i].type =='checkbox') {
-            if (!c[i].checked && count != 0){
+    //     if (c[i].type =='checkbox') {
+    //         if (!c[i].checked && count != 0){
 
                 
-                alert("The form is not complete and has not been submitted yet.<br>There are "+ count +" problems with your submission.");
+    //             alert("The form is not complete and has not been submitted yet.<br>There are "+ count +" problems with your submission.");
 
-                return false;
-            }
-            else {
-                return true;
-            }
-         }
+    //             return false;
+    //         }
+    //         else {
+    //             return true;
+    //         }
+    //      }
 
-        else if (check == false) {
-            if (count != 0){
+    //     else if (check == false) {
+    //         if (count != 0){
+    //             // if the alert box is not yet existing
+    //             if (!$(".wFormContainer .errAlert").length > 0) {
+    //                 $(".wFormContainer").prepend('<div class="alert alert-danger errAlert" role="alert"><p><strong>The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.</strong></p></div>');
+    //             }
+                
+    //             // if the alert box is existing
+    //             else if($(".wFormContainer .errAlert").length > 0) {
+    //                 $(".errAlert").find('p').html('The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.');
+    //             }
 
-                if (!$(".wFormContainer .errAlert").length > 0) {
-                    $(".wFormContainer").prepend('<div class="alert alert-danger errAlert" role="alert"><p><strong>The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.</strong></p></div>');
-                }
-
-                else if($(".wFormContainer .errAlert").length > 0) {
-                    $(".errAlert").find('p').html('The form is not complete and has not been submitted yet.<br>There are '+ count +' problems with your submission.');
-                }
-
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-    }
+    //             return false;
+    //         }
+    //         else {
+    //             return true;
+    //         }
+    //     }
+    // }
 
 }
 
