@@ -200,11 +200,7 @@ window.cookieconsent.initialise({
 });
 // Cookie Consent: END
 
-
 $(document).ready(function() {
-
-  // Test
-  $(".req").addClass("validate(required)");
 
   // Add smooth scrolling to all links : BEGIN
   $('a[target="_parent"]').on('click', function(event) {

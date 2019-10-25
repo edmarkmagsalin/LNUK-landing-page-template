@@ -1,21 +1,21 @@
 $(document).ready(function () {
 
     /*change the dropdown placeholder color to gray by default and change it to black when an item is selected - Gad*/
-    $("select[name='What_can_we_help_you_with__c']").css("color","#868e96");
     $("select[name='salutation']").css("color","#868e96");
+    $("select[name='What_can_we_help_you_with__c']").css("color","#868e96");
     $("select[name='Country__c']").css("color","#868e96");
     $("select[name='Product_you_are__c']").css("color","#868e96");
     $("select[name='Practice_Area_APIL__c']").css("color","#868e96");
     $("select[name='Area_of_Interest__c']").css("color","#868e96");
 
-    $("select[name='What_can_we_help_you_with__c']").bind("focus click", function(){
-        var what_can_we_help = $("select[name='What_can_we_help_you_with__c']");
-        changeColor(what_can_we_help);
-    });
-
     $("select[id='salutation']").bind("focus click", function(){
         var salutation = $("select[id='salutation']");
         changeColor(salutation);
+    });
+
+    $("select[name='What_can_we_help_you_with__c']").bind("focus click", function(){
+        var what_can_we_help = $("select[name='What_can_we_help_you_with__c']");
+        changeColor(what_can_we_help);
     });
 
     $("select[name='Country__c']").bind("focus click", function(){
@@ -87,8 +87,8 @@ $(document).ready(function () {
 
 
     /*keypress functions*/
-    $("select[id='salutation']").bind("focusout", function(){
-        var salutation = $("select[id='salutation']");
+    $("#salutation").bind("focusout", function(){
+        var salutation = $("#salutation");
         validateReqDropdown(salutation);
     });
 
