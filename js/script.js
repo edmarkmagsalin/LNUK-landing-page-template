@@ -143,7 +143,7 @@ $('#form').submit(function(e){
       success : function(r,s,x){
         console.log("Successful SaveWidget call\r\n");
         // On successful post event, submit the form to the standard form handler on your website.
-        //$('#form').submit();
+        $('#form').submit();
       },
       error: function(x,s,e){
         console.log("Error sending data to the preference centre: " + e);
