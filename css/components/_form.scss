@@ -291,6 +291,8 @@
 .form {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 0.25em 1em;
+  max-width: 450px;
+  margin: 0 auto;
 
   h3 {
     font-size: 1.5rem;
@@ -369,6 +371,6 @@
   z-index: 99999;
   @media (max-width: 991.98px) {
     position: static;
-    max-width: 100%;
+    max-width: 450px;
   }
 }
