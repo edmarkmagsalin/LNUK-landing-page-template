@@ -338,12 +338,6 @@ function Validate(){
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-            else if(!validateEmailField($(this))){
-                count++;
-            }
-            else if ($(this).next().hasClass('errMsg')) {
-                $(this).next().remove();
-            }
         }
 
         else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
