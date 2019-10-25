@@ -678,8 +678,7 @@ h6, .h6 {
   border: 0;
 }
 
-.form .errMsg p,
-.form .errMsg span {
+.form .errMsg p {
   font-size: 0.6rem;
   font-weight: 400;
 }

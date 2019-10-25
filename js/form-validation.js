@@ -87,29 +87,29 @@ $(document).ready(function () {
 
 
     /*keypress functions*/
-    $("select[name='salutation']").bind("focusout", function(){
-        var salutation = $("select[name='salutation']");
+    $("select[id='salutation']").bind("focusout", function(){
+        var salutation = $("select[id='salutation']");
         validateReqDropdown(salutation);
     });
 
-    $("input[name='first_name']").bind("focusout", function(){
-        var first_name_field = $("input[name='first_name']");
+    $("input[id='first_name']").bind("focusout", function(){
+        var first_name_field = $("input[id='first_name']");
         validateNameField(first_name_field); 
         
     });
 
-    $("input[name='last_name']").bind("focusout", function(){
-        var last_name_field = $("input[name='last_name']");
+    $("input[id='last_name']").bind("focusout", function(){
+        var last_name_field = $("input[id='last_name']");
         validateNameField(last_name_field);
     });
 
-    $("input[name='company']").bind("focusout", function(){
-        var company_field = $("input[name='company']");
+    $("input[id='company']").bind("focusout", function(){
+        var company_field = $("input[id='company']");
         validateField(company_field);
     });
 
-    $("input[name='title']").bind("focusout", function(){
-        var job_title = $("input[name='title']");
+    $("input[id='title']").bind("focusout", function(){
+        var job_title = $("input[id='title']");
         validateField(job_title);
     });
 
@@ -142,8 +142,8 @@ $(document).ready(function () {
 
     });
 
-    $("input[name='phone']").bind("focusout", function(){
-        var phone_field = $("input[name='phone']");
+    $("input[id='phone']").bind("focusout", function(){
+        var phone_field = $("input[id='phone']");
         
         if ($("select[name='Country__c']").val() == "United Kingdom") {
             validateMobileNumber(phone_field);
@@ -189,25 +189,16 @@ $(document).ready(function () {
         validateField(sr_number);
     });
 
-
-    /*required field validation*/
-    /*no numbers*/
-
     /* Tooltip Initialization */
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
-
-
 });
 
 /* Hide tooltip on mobile and tablet devices */
-
 $(window).on('resize', function(){
       hideTooltip();
 });
-
-
 function hideTooltip() {
     if ( $(window).width() < 780 ){
         $('.form-group input, .form-group select').tooltip('disable');
@@ -218,7 +209,6 @@ function hideTooltip() {
 }
 
 /* Validation Code */
-
 function Validate(){
 
     var count = 0, check = false;
@@ -230,7 +220,7 @@ function Validate(){
         //check if empty
         if ($(this).val().length == 0) {
             if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>This field is required.</p></div>');
             }
             count++;
         }
@@ -239,7 +229,7 @@ function Validate(){
         //if salutation field is none
         else if ($(this).val() == 'None' && $(this).attr('id') == 'salutation') {
             if (!$(this).next().hasClass('errMsg')) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>This field is required.</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>This field is required.</p></div>');
             }
             count++;
         }
@@ -278,15 +268,8 @@ function Validate(){
             $(this).next().remove();
         }
 
-        //for SF
+        //for both MC and SF
         else if ($(this).val().length != 0 && $(this).attr('id') == 'title') {
-            if ($(this).next().hasClass('errMsg')) {
-                $(this).next().remove();
-            }
-        }
-
-        //for MC
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'Job title') {
             if ($(this).next().hasClass('errMsg')) {
                 $(this).next().remove();
             }
@@ -300,30 +283,21 @@ function Validate(){
                 $(this).next().find('span').html('Phone number is too short.');
                 count++;
             } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && $.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Phone number is too short.</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Phone number is too short.</p></div>');
                 count++;
             } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Numbers only</p></div>');
                 count++;
             } else if (!$(this).next().hasClass('errMsg') && $(this).val().length <= 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Numbers only</p></div>');
                 count++;
             } else if (!$(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
-                $(this).parent('.form-group').append('<div class="errMsg"><span>Numbers only</span></div>');
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Numbers only</p></div>');
                 count++;
             } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && !$.isNumeric($(this).val())) {
                 $(this).next().find('span').html('Numbers only');
                 count++;
             } else if ($(this).next().hasClass('errMsg') && $(this).val().length > 5 && $.isNumeric($(this).val())) {
-                $(this).next().remove();
-            }
-        } 
-
-        else if ($(this).val().length != 0 && $(this).attr('id') == 'Email_Address') {
-            if(!checkEmail($(this).val(), this)) {
-                count++;
-            }
-            else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
                 $(this).next().remove();
             }
         }

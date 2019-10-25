@@ -29,22 +29,22 @@ $('#form').submit(function(e){
     if ($('#form').attr('action') == "https://webto.salesforce.com/servlet/servlet.WebToLead") {
       console.log('SF form submit');
       RecordObject.Title = $('select[name="salutation"]').val();
-      RecordObject.Forename = $('input[name="first_name"]').val(); // REQUIRED
-      RecordObject.Surname = $('input[name="last_name"]').val(); // REQUIRED
-      RecordObject.Email1 = $('input[name="email"]').val();      // REQUIRED
+      RecordObject.Forename = $('input[name="first_name"]').val();
+      RecordObject.Surname = $('input[name="last_name"]').val();
+      RecordObject.Email1 = $('input[name="email"]').val();
       RecordObject.Mobile = $('input[name="phone"]').val();
       RecordObject.BusinessName = $('input[name="company"]').val();
-      RecordObject.Postcode = $('input[name="Postcode__c"]').val(); // Postcode
-      RecordObject.Country = $('select[name="Country__c"]').val();    // Country
+      RecordObject.Postcode = $('input[name="Postcode__c"]').val();
+      RecordObject.Country = $('select[name="Country__c"]').val();
       RecordObject.SourceCode = $('input[name="URL__c"]').val();  // URL
     }
     // form going to Marketing Cloud
     else if ($('#form').attr('action') == "https://cl.s7.exct.net/DEManager.aspx"){
       console.log('MC form submit');
       RecordObject.Title = $('select[name="Salutation"]').val();
-      RecordObject.Forename = $('input[name="FirstName"]').val(); // REQUIRED
-      RecordObject.Surname = $('input[name="Surname"]').val(); // REQUIRED
-      RecordObject.Email1 = $('input[name="Email_Address"]').val(); // REQUIRED
+      RecordObject.Forename = $('input[name="FirstName"]').val();
+      RecordObject.Surname = $('input[name="Surname"]').val();
+      RecordObject.Email1 = $('input[name="Email_Address"]').val();
       RecordObject.BusinessName = $('input[name="company"]').val();
       RecordObject.SourceCode = $('input[name="URL"]').val(); // URL
     }
@@ -202,6 +202,9 @@ window.cookieconsent.initialise({
 
 
 $(document).ready(function() {
+
+  // Test
+  $(".req").addClass("validate(required)");
 
   // Add smooth scrolling to all links : BEGIN
   $('a[target="_parent"]').on('click', function(event) {
