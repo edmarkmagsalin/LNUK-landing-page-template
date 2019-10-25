@@ -218,12 +218,20 @@ function Validate(){
         
         //for both MC and SF
         //check if empty
-        if ($(this).val().length == 0) {
+        if ($(this).val().length == 0 || $(this).val() == "None") {
+
+            $(this).removeClass("pass");
+            $(this).parent('.form-group').removeClass("form-pass");
+            $(this).addClass("err");
+            $(this).parent('.form-group').addClass("form-err");
+            $(this).parent('.form-group').find("label").addClass("ic-err");
+
             if (!$(this).next().hasClass('errMsg')) {
                 $(this).parent('.form-group').append('<div class="errMsg"><p>This field is required.</p></div>');
             }
             count++;
         }
+
 
         //for both MC and SF
         //if salutation field is none
