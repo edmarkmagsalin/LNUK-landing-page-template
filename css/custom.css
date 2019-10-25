@@ -690,7 +690,7 @@ h6, .h6 {
   padding-bottom: 10px;
 }
 
-.form .errMsg.p-email-prompt {
+.form .errMsg.p-email-prompt p {
   color: #00993b;
 }
 
@@ -706,7 +706,7 @@ h6, .h6 {
 
 @media (max-width: 991.8px) {
   .form {
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
   }
 }
 
@@ -721,7 +721,7 @@ h6, .h6 {
   .sticky-form {
     position: static;
     max-width: 450px;
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
   }
 }
 /*# sourceMappingURL=custom.css.map */

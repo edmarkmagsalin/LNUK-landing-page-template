@@ -366,39 +366,6 @@ function Validate(){
         if ($(this).type =='checkbox') {
             check == true;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     });
     // validate all .req : END
 
@@ -514,8 +481,8 @@ function checkEmail(str, i) {
         } else if (!$('#email').next().hasClass('errMsg')) {
             $('#email').parent('.form-group').append('<div class="errMsg"><p>Your email address is invalid.</p></div>');
         }
-
-        $('#email').next('.errMsg').css("color", "");
+        
+        $('#email').next('.errMsg').removeClass("p-email-prompt");
         return false;
     }
 }
