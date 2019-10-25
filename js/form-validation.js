@@ -320,6 +320,20 @@ function Validate(){
             $(this).parent('.form-group').find("label").removeClass("ic-err");
             $(this).parent('.form-group').find("label").addClass("ic-pass");
         }
+        
+        else if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+
+            $(this).addClass("err");
+            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
+
+            if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
+                count++;
+            } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                count++;
+            }
+
+        }
 
         if ($(this).type =='checkbox') {
             check == true;
@@ -327,22 +341,6 @@ function Validate(){
 
     });
     // validate all .req : END
-
-    
-
-    if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
-
-        $(this).addClass("err");
-        /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
-
-        if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-            $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
-            count++;
-        } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
-            count++;
-        }
-
-    }
 
     $('.req').each(function() {
         if ($(this).val().length == 0 || $(this).val() == "None") {
