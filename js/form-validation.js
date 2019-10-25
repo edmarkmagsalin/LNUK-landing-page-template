@@ -215,7 +215,7 @@ function Validate(){
 
     // validate all .req : BEGIN
     $('.req').each(function() {
-        
+        /*
         //for both MC and SF
         //check if empty
         if ($(this).val().length == 0 || $(this).val() == "None") {
@@ -353,7 +353,7 @@ function Validate(){
         else if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
 
             $(this).addClass("err");
-            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
+            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*//*
 
             if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
                 $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
@@ -366,7 +366,187 @@ function Validate(){
 
         if ($(this).type =='checkbox') {
             check == true;
+        }*/
+
+
+
+
+
+        /*if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+            if (!$(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).closest('.oneField').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
+                count++;
+            }
+            else if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                count++;
+            }
+
         }
+
+        else if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == true) {
+            if ($(this).closest('.inputWrapper').next().hasClass('errMsg') && $(this).prop('checked') == true) {
+                $(this).closest('.inputWrapper').next().remove();
+            }
+        }*/
+
+        if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == false) {
+
+            $(this).addClass("err");
+            /*$(this).parent('.form-group').addClass("form-err"); disabled because it is overlapping in the tickbox*/
+
+            if (!$(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                $(this).parent('.form-group').append('<div class="errMsg"><p>Please confirm checkbox.</p></div>');
+                count++;
+            } else if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == false) {
+                count++;
+            }
+
+        }
+
+        else if ($(this).attr('type') == 'checkbox' && $(this).prop('checked') == true) {
+            if ($(this).next().next().hasClass('errMsg') && $(this).prop('checked') == true) {
+                $(this).removeClass("err");
+                $(this).parent('.form-group').removeClass("form-err");
+                $(this).addClass("pass");
+                $(this).next().next().remove();
+            }
+        }
+
+        else if ($(this).val().length == 0 || $(this).val() == "None") {
+
+            $(this).removeClass("pass");
+            $(this).parent('.form-group').removeClass("form-pass");
+            $(this).addClass("err");
+            $(this).parent('.form-group').addClass("form-err");
+            $(this).parent('.form-group').find("label").addClass("ic-err");
+
+            if (!$(this).next().hasClass('errMsg')) {
+                $(this).parent('.form-group').append('<div class="errMsg"><p>This field is required.</p></div>');
+            }
+            count++;
+        }
+
+        else if ($(this).val() != "None" && $(this).attr('id') == 'salutation') {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            $(this).next().remove();
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+
+        }
+
+        else if (($(this).val() != "None" && $(this).attr('id') == 'Country__c')) {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            if ($(this).val() == "United States of America" && $('form').hasClass('freetrial')) {
+                console.log("true");
+                if ($(this).next().hasClass('errMsg')) {
+                    $(this).next().find('p').html('Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a>');
+                } else if (!$(this).next().hasClass('errMsg')) {
+                    $(this).parent('.form-group').append('<div class="errMsg"><p>Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a></p></div>');
+                }
+                $(this).next('.errMsg').css("color", "#0c5fca");
+                $(this).next('.errMsg').css("background-color", "#cce5ff");
+            }
+            else { 
+                console.log("false");
+                $(this).next().remove();
+            }
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'company') {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            $(this).next().remove();
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'title') {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            $(this).next().remove();
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+        }
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'email') {
+            if(!checkEmail($(this).val(), this)) {
+                count++;
+            }
+        } 
+
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'phone') {
+            if ($("select[name='Country__c']").val() == "United Kingdom") {
+                if(!checkMobileNumber($(this).val())) {
+                    count++;
+                }
+            }
+            else {
+                if(!validatePhone($(this))) {
+                    count++;
+                }
+            }
+            
+        }
+
+        else if ($(this).val().length != 0 && $(this).hasClass('postal')) {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            $(this).next().remove();
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+        }
+
+        if ($(this).type =='checkbox') {
+            check == true;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     });
     // validate all .req : END
