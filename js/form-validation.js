@@ -437,6 +437,30 @@ function Validate(){
 
         }
 
+        //for both MC and SF
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'first_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+
+            }
+            else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        }
+        
+        //for both MC and SF
+        else if ($(this).val().length != 0 && $(this).attr('id') == 'last_name') {
+            if ($(this).next().hasClass('errMsg') && !/^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().find('span').html('Please do not enter numbers.');
+                count++;
+            } else if ($(this).next().hasClass('errMsg') && /^[a-zA-Z() ]+$/.test($(this).val())) {
+                $(this).next().remove();
+            }
+
+        }
+
         else if (($(this).val() != "None" && $(this).attr('id') == 'Country__c')) {
             $(this).removeClass("err");
             $(this).parent('.form-group').removeClass("form-err");
