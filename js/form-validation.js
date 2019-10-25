@@ -632,7 +632,7 @@ function checkEmail(str, i) {
             $('#email').addClass("pass");
             $('#email').parent('.form-group').removeClass("form-err");
             $('#email').parent('.form-group').addClass("form-pass");
-            $('#email').next('.errMsg').css("color", "green");
+            $('#email').next('.errMsg').addClass("p-email-prompt");
             $('#email').parent('.form-group').find('label').removeClass('ic-err');
             $('#email').parent('.form-group').find('label').addClass('ic-pass');
             return true;

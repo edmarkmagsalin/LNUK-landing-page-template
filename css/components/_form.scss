@@ -77,6 +77,9 @@
     font-weight: 500;
     letter-spacing: 0.02rem;
   }
+  &.p-email-prompt{
+    color: green;
+  }
 }
 
 .err {
@@ -350,9 +353,16 @@
     border: 0;
   }
 
-  .errMsg p {
-    font-size: 0.6rem;
-    font-weight: 400;
+  .errMsg {
+
+    & p{
+      font-size: 0.6rem;
+      font-weight: 400;
+      padding-bottom: 10px;
+    }
+    &.p-email-prompt{
+      color: #00993b;
+    }
   }
   .name-group {
     height: 31px;
@@ -361,6 +371,10 @@
   .form-group.form-err select,
   .form-group.form-pass select {
     padding-left: 10px;
+  }
+
+  @media (max-width: 991.8px){
+    padding-top: 1.5rem;
   }
 }
 
@@ -372,5 +386,6 @@
   @media (max-width: 991.98px) {
     position: static;
     max-width: 450px;
+    padding-top: 1.5rem;
   }
 }

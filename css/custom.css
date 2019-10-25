@@ -399,6 +399,10 @@ h6, .h6 {
   letter-spacing: 0.02rem;
 }
 
+.errMsg.p-email-prompt {
+  color: green;
+}
+
 .err {
   border: 1px solid #e8171f;
 }
@@ -683,6 +687,11 @@ h6, .h6 {
 .form .errMsg p {
   font-size: 0.6rem;
   font-weight: 400;
+  padding-bottom: 10px;
+}
+
+.form .errMsg.p-email-prompt {
+  color: #00993b;
 }
 
 .form .name-group {
@@ -693,6 +702,12 @@ h6, .h6 {
 .form .form-group.form-err select,
 .form .form-group.form-pass select {
   padding-left: 10px;
+}
+
+@media (max-width: 991.8px) {
+  .form {
+    padding-top: 1.5rem;
+  }
 }
 
 .sticky-form {
@@ -706,6 +721,7 @@ h6, .h6 {
   .sticky-form {
     position: static;
     max-width: 450px;
+    padding-top: 1.5rem;
   }
 }
 /*# sourceMappingURL=custom.css.map */
