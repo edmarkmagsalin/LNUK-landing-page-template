@@ -426,7 +426,6 @@ function validateEmailField(input_field){
                 input_field.next().find('p').html('This field is required.');
         }
 
-        // $('#email').next('.errMsg').css("color", "");
         $('.p-email-prompt').removeClass("p-email-prompt");
 
     }
@@ -483,7 +482,6 @@ function checkEmail(str, i) {
             $('#email').parent('.form-group').append('<div class="errMsg"><p>Your email address is invalid.</p></div>');
         }
         
-        // $('#email').next('.errMsg').css("color", "");
         $('.p-email-prompt').removeClass("p-email-prompt");
         return false;
     }
