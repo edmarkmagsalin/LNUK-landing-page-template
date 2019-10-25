@@ -149,7 +149,7 @@ $(document).ready(function () {
             validateMobileNumber(phone_field);
         }
         else {
-            validatePhone(phone_field);            
+            validatePhone(phone_field);
         }
 
     });
@@ -243,6 +243,30 @@ function Validate(){
         }
         else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
             $(this).next().remove();
+        }
+
+        else if ($(this).val() != "None" && $(this).attr('id') == 'Country__c') {
+            $(this).removeClass("err");
+            $(this).parent('.form-group').removeClass("form-err");
+            $(this).parent('.form-group').addClass("form-pass");
+            $(this).addClass("pass");
+            if ($(this).val() == "United States of America" && $('form').hasClass('freetrial')) {
+                console.log("true");
+                if ($(this).next().hasClass('errMsg')) {
+                    $(this).next().find('p').html('Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a>');
+                } else if (!$(this).next().hasClass('errMsg')) {
+                    $(this).parent('.form-group').append('<div class="errMsg"><p>Looking for US legislation, case law and practical guidance? <a href="https://www.lexisnexis.com/en-us/products/lexis-advance.page" target="_blank">Please click here.</a></p></div>');
+                }
+                $(this).next('.errMsg').css("color", "#0c5fca");
+                $(this).next('.errMsg').css("background-color", "#cce5ff");
+            }
+            else { 
+                console.log("false");
+                $(this).next().remove();
+            }
+            $(this).parent('.form-group').find("label").removeClass("ic-err");
+            $(this).parent('.form-group').find("label").addClass("ic-pass");
+
         }
 
         //for both MC and SF
