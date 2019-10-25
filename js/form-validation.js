@@ -338,7 +338,7 @@ function Validate(){
             if(!checkEmail($(this).val(), this)) {
                 count++;
             }
-            else if ($(this).next().hasClass('errMsg') && $(this).val() != 'None') {
+            else if ($(this).next().hasClass('errMsg') && checkEmail($(this).val())) {
                 $(this).next().remove();
             }
         }
