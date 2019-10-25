@@ -13,8 +13,8 @@ $(document).ready(function () {
         changeColor(what_can_we_help);
     });
 
-    $("select[name='salutation']").bind("focus click", function(){
-        var salutation = $("select[name='salutation']");
+    $("select[id='salutation']").bind("focus click", function(){
+        var salutation = $("select[id='salutation']");
         changeColor(salutation);
     });
 
