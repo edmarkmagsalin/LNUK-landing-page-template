@@ -1,5 +1,7 @@
 /* Form */
-
+/************************
+ SF form specific styles
+*************************/
 /* Optout styling */
 .optout {
   margin-top: 2rem;
@@ -45,7 +47,6 @@
 }
 
 /* Error alert styling */
-
 .errAlert {
   background-color: #ab1e2b;
   color: #fff;
@@ -64,7 +65,6 @@
 }
 
 /* Error fields styling */
-
 .errMsg {
   display: inline-block;
   margin-top: 0.3rem;
@@ -98,7 +98,6 @@
 }
 
 /* Form styling */
-
 .form-bg {
   background-color: $grayColor !important;
 }
@@ -291,6 +290,10 @@
   margin: 15px 0 !important;
 }
 
+/**********************************
+ MC form specific styles
+ Dependent on SF form styles above
+***********************************/
 .form {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 0.25em 1em;
