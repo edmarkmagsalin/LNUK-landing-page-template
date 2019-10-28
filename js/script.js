@@ -1,4 +1,4 @@
-// Widget Save Code Starts
+// Widget Save Code : BEGIN
 $('#form').submit(function(e){
    
   IsValid = Validate();
@@ -83,9 +83,7 @@ $('#form').submit(function(e){
 
     RecordObject.Preferences = PreferenceArray;
 
-
     // Process Admin preferences (if present)
-    
     var AdminPreferenceArray = [];
 
     if (typeof $('#adminheaderid').val() !== "undefined") {
@@ -130,8 +128,7 @@ $('#form').submit(function(e){
     
     RecordObject.Flags = FlagArray;
 
-    // Now push everything into RecordObject ready for AJAX call 
-
+    // Now push everything into RecordObject ready for AJAX call
     ObjectArray.push(RecordObject);
         
     // Post the data to the Preference Centre service

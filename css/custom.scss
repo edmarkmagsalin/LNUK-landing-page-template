@@ -1,11 +1,9 @@
-@import
-  'abstracts/variables';
+@import 'abstracts/variables';
 
 /*======================
 =         Base         =
 =======================*/
-@import
-  'base/reset';
+@import 'base/reset';
 
 /*========================
 =         Layout         =
@@ -21,5 +19,4 @@
   'components/banner',
   'components/the-insight-bar',
   'components/cookie-consent',
-  'components/tabs',
-  'components/form';
+  'components/tabs';
