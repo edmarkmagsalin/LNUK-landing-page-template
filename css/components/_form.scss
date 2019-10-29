@@ -77,8 +77,8 @@
     font-weight: 500;
     letter-spacing: 0.02rem;
   }
-  &.p-email-prompt{
-    color: green;
+  &.p-email-prompt p{
+    color: $greenColor;
   }
 }
 
@@ -90,7 +90,7 @@
 }
 
 .pass {
-  border: 1px solid $successColor;
+  border: 1px solid $greenColor;
 }
 
 .warn {
@@ -150,8 +150,8 @@
 
   &.form-pass:before {
     content: '\f00c';
-    border: 3px solid $successColor;
-    color: $successColor;
+    border: 3px solid $greenColor;
+    color: $greenColor;
   }
 
   &.form-info:before {
@@ -362,9 +362,6 @@
       font-size: 0.6rem;
       font-weight: 400;
       padding-bottom: 10px;
-    }
-    &.p-email-prompt p{
-      color: #00993b;
     }
   }
   .name-group {
