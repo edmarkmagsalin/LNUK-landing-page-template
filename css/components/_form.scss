@@ -290,9 +290,15 @@
   margin: 15px 0 !important;
 }
 
+.form-check a, .form-group a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /**********************************
  MC form specific styles
  Dependent on SF form styles above
+ and /assets/css/landing-page.css
 ***********************************/
 .form {
   background-color: rgba(0, 0, 0, 0.7);
@@ -324,6 +330,22 @@
     margin-bottom: 0;
     padding: 0.1rem 0rem;
     transition: all 0.3s ease-in-out;
+
+    &.form-pass select,
+    &.form-pass input,
+    &.form-err select,
+    &.form-err input,
+    &.form-info select,
+    &.form-info input,
+    &.form-warn select,
+    &.form-warn input {
+      padding-left: 10px;
+    }
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 4px 10px;
   }
 
   #PrefWidget .prefHeader {
